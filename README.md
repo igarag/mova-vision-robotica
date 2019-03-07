@@ -2,7 +2,7 @@
 
 ### Introducción
 
-<img align="left" width="40%" height="40%" src="./img/puntos_interes.png">
+<img align="left" width="30%" height="30%" src="./img/puntos_interes.png">
 
 En esta página se explica la metodología empleada para el desarrollo de la práctica de `follow_line` en la asignatura de Visión en Robótica del Máster Oficial en Visión Artificial.
 
