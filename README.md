@@ -2,9 +2,7 @@
 
 ### Introducción
 
-<p align="center">
-  <img width="60%" height="60%" src="./img/telemetria.png">
-</p>
+<img align="left" width="40%" height="40%" src="./img/puntos_interes.png">
 
 En esta página se explica la metodología empleada para el desarrollo de la práctica de `follow_line` en la asignatura de Visión en Robótica del Máster Oficial en Visión Artificial.
 
@@ -53,7 +51,10 @@ Para detectar la Recta se ajustan unos valores de desviación con respecto al ce
 
 Para el otro caso, se detectará **curva** si no cumple con el rango de valores estimado en el paso anterior, por lo que reduce la velocidad. Aplicando lo conocido para un control PD no disminuye la velocidad de maner aconstante ni brusca si no en función del segundo punto de estudio de la imagen, **la pared**. 
 
-<img align="left" width="40%" height="40%" src="./img/puntos_interes.png">
+<p align="center">
+  <img width="60%" height="60%" src="./img/telemetria.png">
+</p>
+
 
 El estudio del nivel de intensidad de las paredes proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un valor 0 de nivel de intensidad en el punto corresponde a una pared muy próxima y por lo tanto se tiene que reducir la velocidad. Es aquí donde entra en juego el segundo controlador PD. Las diferencias entre niveles de intensidad de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada en otra variable. Este estudio de la pared está representado en el GUI mediante un punto amarillo (wall en la telemetría).
 
