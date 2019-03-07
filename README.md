@@ -34,7 +34,7 @@ Para corregir el error se diseña un control proporcional y derivativo (PD). Con
 La ecuación que sigue este controlador es la siguiente:
 
 ```python
-correccion = kp * desviacion + kd * (desviación - desviacion_anterior)
+correccion = kp * desviacion + kd * (desviacion - desviacion_anterior)
 ```
 
 El ajuste de las constantes Kp y Kd serán las que permitan un funcionamiento más ajustado a la línea y suavidad en la corrección. Son valores que se calculan de manera experimental por lo que llevan tiempo adecuar estos valores al problema concreto.
