@@ -25,9 +25,35 @@ Dado que la imagen tiene un ancho de 640 píxeles, el punto centra de la imagen 
 
 Esta desviación se clasifica como el **error** y es el parámetro en el que se basa la práctica. 
 
+
+
 ### Comportamiento
 
-Para corregir el error se diseña un control proporcional y derivativo (PD). 
+Para corregir el error se diseña un control proporcional y derivativo (PD). Con este mecanismo de control se pretende corregir el error proporcionado por la diferencia entre el centro de la imagen y el centro de la línea de manera proporcional (Kp), es decir, tanta corrección como desviación sufra el vehículo. Para compensar las oscilaciones proporcionadas por estre controlador se añade la componente derivativa (Kd) que suaviza estos cambios bruscos calculando diferencias entre el error actual y el anterior para conocer si el error aumenta y, por tanto, hay que corregir más o disminiuye y la componente proporcional tiene que corregir menos cantidad. 
+
+La ecuación que sigue este controlador es la siguiente:
+
+```python
+correccion = kp * desviacion + kd * (desviación - desviacion_anterior)
+```
+
+El ajuste de las constantes Kp y Kd serán las que permitan un funcionamiento más ajustado a la línea y suavidad en la corrección. Son valores que se calculan de manera experimental por lo que llevan tiempo adecuar estos valores al problema concreto.
+
+
+
+### Control Basado en casos.
+
+Para incrementar la velocidad y control sobre el vehículo se construye otro control PD muy similar al anterior para el ajuste de la velocidad y rectas. De esta manera y como se haría intuitivamente en un vehículo real, se acelera en los tramos rectos y se frena en las curvas o situaciones donde se desvía mucho de la línea. Para este control se implementa un **control basado en casos** que discrimine entre **Recta** o **Curva**. 
+
+Para detectar la Recta se ajustan unos valores de desviación con respecto al centro de +/- 15 píxeles por lo que si el punto central de la línea se encuentra a esa distancia con respecto al centro de la imagen el vehículo se encuentra en una recta y por tanto acelerará. 
+
+Para el otro caso, se detectará **curva** si no cumple con el rango de valores estimado en el paso anterior, por lo que reduce la velocidad. Aplicando lo conocido para un control PD no disminuye la velocidad de maner aconstante ni brusca si no en función del segundo punto de estudio de la imagen, **la pared**. El estudio del nivel de intensidad de las paredes proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un valor 0 de nivel de intensidad en el punto corresponde a una pared muy próxima y por lo tanto se tiene que reducir la velocidad. Es aquí donde entra en juego el segundo controlador PD. Las diferencias entre niveles de intensidad de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada en otra variable. Este estudio de la pared está representado en el GUI mediante un punto amarillo (wall en la telemetría).
+
+
+
+
+De la misma manera
+
 
 
 
