@@ -2,6 +2,10 @@
 
 ### Introducción
 
+<p align="center">
+  <img width="60%" height="60%" src="./img/telemetria.png">
+</p>
+
 En esta página se explica la metodología empleada para el desarrollo de la práctica de `follow_line` en la asignatura de Visión en Robótica del Máster Oficial en Visión Artificial.
 
 El objetivo de la práctica es aplicar comportamiento reactivo a un modelo de Fórmula 1 para que siga una línea roja pintada sobre el asfalto de la simulación. Con este comportamiento se pretende optimizar los valores de los actuadores del robot para que complete la vuelta en el menor tiempo posible.
@@ -53,9 +57,7 @@ Para el otro caso, se detectará **curva** si no cumple con el rango de valores 
 
 El estudio del nivel de intensidad de las paredes proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un valor 0 de nivel de intensidad en el punto corresponde a una pared muy próxima y por lo tanto se tiene que reducir la velocidad. Es aquí donde entra en juego el segundo controlador PD. Las diferencias entre niveles de intensidad de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada en otra variable. Este estudio de la pared está representado en el GUI mediante un punto amarillo (wall en la telemetría).
 
-<p align="center">
-  <img width="60%" height="60%" src="./img/telemetria.png">
-</p>
+
 
 
 
