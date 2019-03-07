@@ -14,8 +14,10 @@ Para que el robot simulador siga la línea se obtienen imágenes de una cámara 
 Con la imagen recortada se procesa la imagen para extraer la línea roja del asfalto, que es la guía por donde el vehículo circula. Para esta extracción se decide pasar la imagen RGB que se obtiene de la cámara al modelo de color HSV por ser más robusto frente a cambios de iluminación y, por tanto, obtener valores más fiables e independientes de otros elementos.
 
 Con este cambio en el modelo de color y fijados los valores del filtro se obtiene la línea roja. Puede verse en la siguiente imagen el resultado de la segmentación.
+<p align="center">
+  <img width="60%" height="60%" src="./img/imagen_segmentada.png">
+</p>
 
-<img src="./img/imagen_segmentada.png" width="60%" height="60%">
 
 
 Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería `numpy` se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores. 
