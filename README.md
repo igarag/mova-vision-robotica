@@ -14,11 +14,10 @@ Para que el robot simulador siga la línea se obtienen imágenes de una cámara 
 Con la imagen recortada se procesa la imagen para extraer la línea roja del asfalto, que es la guía por donde el vehículo circula. Para esta extracción se decide pasar la imagen RGB que se obtiene de la cámara al modelo de color HSV por ser más robusto frente a cambios de iluminación y, por tanto, obtener valores más fiables e independientes de otros elementos.
 
 Con este cambio en el modelo de color y fijados los valores del filtro se obtiene la línea roja. Puede verse en la siguiente imagen el resultado de la segmentación.
+
 <p align="center">
   <img width="60%" height="60%" src="./img/imagen_segmentada.png">
 </p>
-
-
 
 Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería `numpy` se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores. 
 
@@ -26,7 +25,6 @@ Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utili
 Dado que la imagen tiene un ancho de 640 píxeles, el punto centra de la imagen se encuentra en el píxel 320. Las diferencias que existen entre el punto central de la imagen y el valor calculado a través de la extracción del punto centro de la fila será la desviación cometida con respecto al centro.
 
 Esta desviación se clasifica como el **error** y es el parámetro en el que se basa la práctica. 
-
 
 
 ### Comportamiento
@@ -51,14 +49,15 @@ Para detectar la Recta se ajustan unos valores de desviación con respecto al ce
 
 Para el otro caso, se detectará **curva** si no cumple con el rango de valores estimado en el paso anterior, por lo que reduce la velocidad. Aplicando lo conocido para un control PD no disminuye la velocidad de maner aconstante ni brusca si no en función del segundo punto de estudio de la imagen, **la pared**. 
 
-<img src="./img/puntos_interes.png" width="60%" height="60%">
+<img align="left" width="40%" height="40%" src="./img/puntos_interes.png">
 
 El estudio del nivel de intensidad de las paredes proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un valor 0 de nivel de intensidad en el punto corresponde a una pared muy próxima y por lo tanto se tiene que reducir la velocidad. Es aquí donde entra en juego el segundo controlador PD. Las diferencias entre niveles de intensidad de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada en otra variable. Este estudio de la pared está representado en el GUI mediante un punto amarillo (wall en la telemetría).
 
-<img src="./img/telemetria.png" width="80%" height="60%">
+<p align="center">
+  <img width="60%" height="60%" src="./img/telemetria.png">
+</p>
 
 
-De la misma manera
 
 
 
