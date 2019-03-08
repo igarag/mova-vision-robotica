@@ -2,6 +2,8 @@
 
 ### Introducción
 
+<img align="left" width="30%" height="30%" src="./img/puntos_interes.png">
+
 En esta página se explica la metodología empleada para el desarrollo de la práctica de `follow_line` en la asignatura de Visión en Robótica del Máster Oficial en Visión Artificial.
 
 El objetivo de la práctica es aplicar comportamiento reactivo a un modelo de Fórmula 1 para que siga una línea roja pintada sobre el asfalto de la simulación. Con este comportamiento se pretende optimizar los valores de los actuadores del robot para que complete la vuelta en el menor tiempo posible.
@@ -15,8 +17,9 @@ Con la imagen recortada se procesa la imagen para extraer la línea roja del asf
 
 Con este cambio en el modelo de color y fijados los valores del filtro se obtiene la línea roja. Puede verse en la siguiente imagen el resultado de la segmentación.
 
-<img src="./img/imagen_segmentada.png" width="60%" height="60%">
-
+<p align="center">
+  <img width="60%" height="60%" src="./img/imagen_segmentada.png">
+</p>
 
 Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería `numpy` se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores. 
 
@@ -26,7 +29,6 @@ Dado que la imagen tiene un ancho de 640 píxeles, el punto centra de la imagen 
 Esta desviación se clasifica como el **error** y es el parámetro en el que se basa la práctica. 
 
 
-
 ### Comportamiento
 
 Para corregir el error se diseña un control proporcional y derivativo (PD). Con este mecanismo de control se pretende corregir el error proporcionado por la diferencia entre el centro de la imagen y el centro de la línea de manera proporcional (Kp), es decir, tanta corrección como desviación sufra el vehículo. Para compensar las oscilaciones proporcionadas por estre controlador se añade la componente derivativa (Kd) que suaviza estos cambios bruscos calculando diferencias entre el error actual y el anterior para conocer si el error aumenta y, por tanto, hay que corregir más o disminiuye y la componente proporcional tiene que corregir menos cantidad. 
@@ -34,7 +36,7 @@ Para corregir el error se diseña un control proporcional y derivativo (PD). Con
 La ecuación que sigue este controlador es la siguiente:
 
 ```python
-correccion = kp * desviacion + kd * (desviación - desviacion_anterior)
+correccion = kp * desviacion + kd * (desviacion - desviacion_anterior)
 ```
 
 El ajuste de las constantes Kp y Kd serán las que permitan un funcionamiento más ajustado a la línea y suavidad en la corrección. Son valores que se calculan de manera experimental por lo que llevan tiempo adecuar estos valores al problema concreto.
@@ -49,14 +51,16 @@ Para detectar la Recta se ajustan unos valores de desviación con respecto al ce
 
 Para el otro caso, se detectará **curva** si no cumple con el rango de valores estimado en el paso anterior, por lo que reduce la velocidad. Aplicando lo conocido para un control PD no disminuye la velocidad de maner aconstante ni brusca si no en función del segundo punto de estudio de la imagen, **la pared**. 
 
-<img src="./img/puntos_interes.png" width="60%" height="60%">
+<p align="center">
+  <img width="60%" height="60%" src="./img/telemetria.png">
+</p>
+
 
 El estudio del nivel de intensidad de las paredes proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un valor 0 de nivel de intensidad en el punto corresponde a una pared muy próxima y por lo tanto se tiene que reducir la velocidad. Es aquí donde entra en juego el segundo controlador PD. Las diferencias entre niveles de intensidad de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada en otra variable. Este estudio de la pared está representado en el GUI mediante un punto amarillo (wall en la telemetría).
 
-<img src="./img/telemetria.png" width="80%" height="60%">
 
 
-De la misma manera
+
 
 
 
