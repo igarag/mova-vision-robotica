@@ -60,11 +60,9 @@ El estudio del nivel de intensidad de las paredes proporciona informaci√≥n de c√
 
 
 
+<p align="center">
+  <video width="60%" height="60%" src="./img/follow_line_solution.mp4">
+</p>
 
-
-
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Tqh14Q2boXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
