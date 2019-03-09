@@ -56,11 +56,12 @@ Para el otro caso, se detectará **curva** si no cumple con el rango de valores 
 </p>
 
 
-El estudio del nivel de intensidad de las paredes proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un valor 0 de nivel de intensidad en el punto corresponde a una pared muy próxima y por lo tanto se tiene que reducir la velocidad. Es aquí donde entra en juego el segundo controlador PD. Las diferencias entre niveles de intensidad de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada en otra variable. Este estudio de la pared está representado en el GUI mediante un punto amarillo (wall en la telemetría).
+El **estudio** del nivel de intensidad **de las paredes** proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un **valor 0** de nivel de intensidad en el punto corresponde a una **pared muy próxima** y por lo tanto se tiene que reducir la velocidad. Es aquí donde entra en juego el segundo controlador PD. Las diferencias entre niveles de intensidad de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada en otra variable. Este estudio de la pared está representado en el GUI mediante un punto amarillo (*wall* en la telemetría).
 
+En el siguiente vídeo puede verse el resultado del algoritmo que lleva a realizar la vuelta al circuito en aproximadamente 47 segundos.
 
 <video width="320" height="200" controls preload> 
-    <source src="./img/follow_line_solution.mp4"</source> 
+    <source src="./img/follow_line_solution.mp4"></source> 
 </video>
 
 
