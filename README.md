@@ -60,7 +60,7 @@ El **estudio** del nivel de intensidad **de las paredes** proporciona informaci√
 
 En el siguiente v√≠deo puede verse el resultado del algoritmo que lleva a realizar la vuelta al circuito en aproximadamente 47 segundos.
 
-<video width="320" height="200" controls preload> 
+<video width="600px" height="400px" controls preload> 
     <source src="./img/follow_line_solution.mp4"></source> 
 </video>
 
