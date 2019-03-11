@@ -24,7 +24,7 @@ Con este cambio en el modelo de color y fijados los valores del filtro se obtien
 Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería `numpy` se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores. 
 
 ### Diseño
-Dado que la imagen tiene un ancho de 640 píxeles, el punto centra de la imagen se encuentra en el píxel 320. Las diferencias que existen entre el punto central de la imagen y el valor calculado a través de la extracción del punto centro de la fila será la desviación cometida con respecto al centro.
+Dado que la imagen tiene un ancho de 640 píxeles, el punto central de la imagen se encuentra en el píxel 320. Las diferencias que existen entre el punto central de la imagen y el valor calculado a través de la extracción del punto centro de la fila será la desviación cometida con respecto al centro.
 
 Esta desviación se clasifica como el **error** y es el parámetro en el que se basa la práctica. 
 
