@@ -49,7 +49,7 @@ Idealemente ambos rayos deberían coincidir en un punto común que coincidiría 
 
 ### 7. Resultados
 
-Una vez se completan los pasos anteriores, la última etapa es la representación en el Canvas 3D de la plataforma. Para ello se obtiene (usando las cooredenadas de la imagen izquierda) el color del pixel para que el resultado se obtenga en color. Pasados 90 segundos se obtiene el resultado que se puede ver en la figura.
+Una vez se completan los pasos anteriores, la última etapa es la representación en el Canvas 3D de la plataforma. Para ello se obtiene (usando las cooredenadas de la imagen izquierda) el color del pixel para que el resultado se obtenga en color. Pasados aproximadamente 90 segundos se obtiene el resultado que se puede ver en la figura.
 
 <img src="./img/reconstruccion_3d/solucion.png" width="100%" height="60%">
 
@@ -60,6 +60,12 @@ Puede verse el proceso de la reconstrucción en el siguiente vídeo:
 </video>
 
 Las zonas huecas que se ven en la solución (interior del patito de goma) ocurre porque no se han sacado puntos de interés en ese área (caen como si se trataran de fondo) y generan el hueco.
+
+Si lo visualizamos desde otro ángulo, podemos ver los planos formados a distinta profundidad. Debido a la resolución de las imágenes que se obtienen desde las cámaras, se ven claramente los distintos planos de profundidad. Esto es debido a que, objetos más cercanos tienen más disparidad que los lejanos. Dado que la resolución de las imágenes es de 320x240 existen unas *limitaciones* a la hora de obtener correspondencias. A medida que la resolución de la cámara aumenta es posible obtener más planos en la disparidad, lo que se traduciría en mayor número de *planos de imagen* de los que se ven en la siguiente imagen.
+
+<img src="./img/reconstruccion_3d/plano_cenital.png" width="100%" height="60%">
+
+
 
 El **número de puntos** que se han representado son, aproximadamente, 23580 en 1:30 minutos.
 
