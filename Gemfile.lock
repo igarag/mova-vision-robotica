@@ -56,7 +56,7 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
-  jekyll (~> 3.6.3)
+  jekyll (>= 3.6.3)
   jekyll-paginate
   listen (= 3.0.6)
   neat (~> 1.0.0)
