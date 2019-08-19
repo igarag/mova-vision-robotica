@@ -27,7 +27,7 @@ El resultados de esta operación es un punto (no definido) en el espacio. Este p
 
 Para reducir el tiempo de búsqueda del punto correspondiente en la cámara derecha,  se limita la búsqueda a una línea, la **línea epipolar**. Ese tiempo de búsqueda de la correspondencia se reduce aún más si se limita a unos pocos puntos de esa línea. Dado que la distancia entre las cámaras es pequeña, no será necesario buscar más allá de unos pocos píxeles. Para esta práctica, esa limitación está en 15 píxeles hacia la izquierda (como se busca en la cámara derecha, la mejor correspondencia estará hacia la izquierda).
 
-<img src="./img/reconstruccion_3d/epipolar.jpg" width="100%" height="60%">
+<img src="./boxes/reconstruccion/img/epipolar.jpg" width="100%" height="60%">
 
 ### 4. Matching
 
@@ -40,7 +40,7 @@ Con la coordenada de la cámara derecha del mejor píxel obtenido tras la correl
 En el siguiente vídeo puede verse qué ocurre si representamos en el espacio los puntos de retroproyección en ambas cámaras. En color negro están los puntos retroproyectados de la cámara derecha y en blanco los de la cámara izquierda. Con esta disparidad  se calcularán las interrecciones. Estas íntersecciones estarán más próximas a punto desde donde se está visualizando esta escena.
 
 <video width="600px" height="400px" controls preload> 
-    <source src="./img/reconstruccion_3d/reconstruccion_trazas.mp4"></source> 
+    <source src="./boxes/reconstruccion/img/reconstruccion_trazas.mp4"></source> 
 </video>
 
 ### 6. Intersección entre los rayos, triangulación.
@@ -56,14 +56,14 @@ Una vez se completan los pasos anteriores, la última etapa es la representació
 Puede verse el proceso de la reconstrucción en el siguiente vídeo:
 
 <video width="600px" height="400px" controls preload> 
-    <source src="./img/reconstruccion_3d/reconstruccion_solucion.mp4"></source> 
+    <source src="./boxes/reconstruccion/img/reconstruccion_solucion.mp4"></source> 
 </video>
 
 Las zonas huecas que se ven en la solución (interior del patito de goma) ocurre porque no se han sacado puntos de interés en ese área (caen como si se trataran de fondo) y generan el hueco.
 
 Si lo visualizamos desde otro ángulo, podemos ver los planos formados a distinta profundidad. Debido a la resolución de las imágenes que se obtienen desde las cámaras, se ven claramente los distintos planos de profundidad. Esto es debido a que, objetos más cercanos tienen más disparidad que los lejanos. Dado que la resolución de las imágenes es de 320x240 existen unas *limitaciones* a la hora de obtener correspondencias. A medida que la resolución de la cámara aumenta es posible obtener más planos en la disparidad, lo que se traduciría en mayor número de *planos de imagen* de los que se ven en la siguiente imagen.
 
-<img src="./img/reconstruccion_3d/plano_cenital.png" width="100%" height="60%">
+<img src="./boxes/reconstruccion/img/plano_cenital.png" width="100%" height="60%">
 
 
 
