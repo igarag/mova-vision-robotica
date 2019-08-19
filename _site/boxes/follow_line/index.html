@@ -1,0 +1,215 @@
+<!doctype html>
+<html lan="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Sigue Línea | NachoAz</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="shortcut icon" href="https://avatars3.githubusercontent.com/u/9017430?s=460&v=4
+?s=16">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:300,500,300italic,500italic|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+
+  <script type="text/javascript" charset="utf-8" src="/js/matchmedia.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/picturefill.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="github">
+      <a href="https://github.com/igarag/exemplar"><img style="position: absolute; top: 0; right: 0; border: 0;" alt="Fork me on GitHub"></a>
+    </div>
+    <header>
+    <div class="container">
+        <div class="profile">
+            <div class="social">
+                <a href="https://twitter.com/i__arranz">
+                    <div data-picture data-alt="Twitter">
+                        <div data-src="/img/twitter16.png"></div>
+                        <div data-src="/img/twitter32.png"     data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                        <noscript><img src="/img/twitter16.png" alt="Twitter"></noscript>
+                    </div>
+                </a>
+                <a href="https://github.com/igarag">
+                    <div data-picture data-alt="Github">
+                        <div data-src="/img/octocat16.png"></div>
+                        <div data-src="/img/octocat32.png"     data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                        <noscript><img src="/img/octocat16.png" alt="Github"></noscript>
+                    </div>
+                </a>
+            </div>
+            <a href="https://github.com/igarag">
+                <div class="avatar" data-picture data-alt="avatar">
+                    <div data-src="https://avatars3.githubusercontent.com/u/9017430?s=460&v=4
+?s=54"></div>
+                    <div data-src="https://avatars3.githubusercontent.com/u/9017430?s=460&v=4
+?s=108" data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                    <noscript><img src="https://avatars3.githubusercontent.com/u/9017430?s=460&v=4
+?s=54" alt="avatar"></noscript>
+                </div>
+            </a>
+        </div>
+        <h5 class="logo"><a href="https://github.com/igarag">Nacho Az</a></h5>
+        <nav class="main">
+            <ul>
+                
+                
+                <li><a href="https://igarag.github.io/online-cv/">Sobre mí</a></li>
+                
+                
+                <li><a href="https://github.com/igarag">Proyectos</a></li>
+                
+            </ul>
+        </nav>
+        <div class="nav-slider">
+            <div class="nav-selection "></div>
+        </div>
+        <div class="subnav-slider">
+            <div class="subnav-selection "></div>
+        </div>
+        <nav class="subnav">
+            <ul>
+                
+                    <li><a href="/" data-subnav="exemplar-home">Inicio</a></li>
+                
+                
+                
+                    <li><a href="https://github.com/igarag/mova-vision-robotica" data-subnav="download">Repositorio</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <section id="main">
+        <article class="container">
+          <h1 class="hero">Sigue Línea</h1>
+          <p>En esta página se explica la metodología empleada para el desarrollo de la práctica de <strong>Sigue Línea</strong> en la asignatura de Visión en Robótica del Máster Oficial en Visión Artificial.</p>
+
+<div style="text-align: center">
+	<img align="center" width="50%" height="30%" src="./img/puntos_interes.png" />
+</div>
+
+<p>El <strong>objetivo</strong> de la práctica es aplicar comportamiento reactivo a un modelo de Fórmula 1 para que siga una línea roja pintada sobre el asfalto de la simulación. Con este comportamiento se pretende optimizar los valores de los actuadores del robot para que complete la vuelta en el menor tiempo posible.</p>
+
+<h3 id="1-preproceso">1. Preproceso</h3>
+
+<p>Para que el robot simulador siga la línea se obtienen imágenes de una <strong>cámara situada en el centro</strong> del modelo. Estas imágenes pasan primeramente por una función que procesa el contenido capturado. Dado que buena parte de la imagen pertenece al cielo de la escena, se procesa el contenido de la imagen de retorno a partir de la <strong>mitad</strong>, centrando la atención en la <strong>mitad inferior</strong> de la imagen que será donde ocurran los eventos.</p>
+
+<p>Con la imagen recortada se procesa la imagen para extraer la línea roja del asfalto, que es la guía por donde el vehículo circula. Para esta extracción se decide pasar la imagen RGB que se obtiene de la cámara al modelo de color HSV por ser más robusto frente a cambios de iluminación y, por tanto, obtener valores más fiables e independientes de otros elementos.</p>
+
+<p>Con este cambio en el modelo de color y fijados los valores del filtro se obtiene la línea roja. Puede verse en la siguiente imagen el resultado de la segmentación.</p>
+
+<p align="center">
+  <img width="60%" height="60%" src="./img/imagen_segmentada.png" />
+</p>
+
+<p>Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería <code>numpy</code> se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores.</p>
+
+<h3 id="2-diseño">2. Diseño</h3>
+<p>Dado que la imagen tiene un ancho de 640 píxeles, el punto central de la imagen se encuentra en el píxel 320. Las <strong>diferencias</strong> que existen <strong>entre el punto central</strong> de la imagen y el <strong>valor calculado</strong> a través de la extracción del punto centro de la fila <strong>será la desviación cometida</strong> con respecto al centro.</p>
+
+<p>Esta desviación se clasifica como el <strong>error</strong> y es el parámetro en el que se basa la práctica.</p>
+
+<h3 id="3-comportamiento">3. Comportamiento</h3>
+
+<p>Para corregir este error se diseña un <strong>control proporcional</strong> y derivativo (PD). Con este mecanismo de control se <strong>corrige el error</strong> proporcionado por la diferencia entre el centro de la imagen y el centro de la línea de manera proporcional (<code>Kp</code>), es decir, tanta corrección como desviación sufra el vehículo. Para <strong>compensar las oscilaciones</strong> proporcionadas por este controlador se añade la <strong>componente derivativa</strong> (<code>Kd</code>) que <strong>suaviza</strong> estos <strong>cambios bruscos</strong> calculando <strong>diferencias entre el error actual y el anterior</strong> para conocer si el error <strong>aumenta</strong> y, por tanto, hay que <strong>corregir más</strong> o <strong>disminuye</strong> y la componente proporcional tiene que <strong>corregir menos</strong> cantidad.</p>
+
+<p>La ecuación que sigue este controlador es la siguiente:</p>
+
+<pre><code class="language-python">correccion = kp * desviacion + kd * (desviacion - desviacion_anterior)
+</code></pre>
+
+<p>El ajuste de las constantes <code>Kp</code> y <code>Kd</code> serán las que permitan un funcionamiento más ajustado a la línea y suavidad en la corrección. Son valores que <strong>se calculan de manera experimental</strong> por lo que llevan tiempo adecuar estos valores al problema concreto.</p>
+
+<h3 id="4-control-basado-en-casos">4. Control Basado en casos.</h3>
+
+<p>Para poder ajustar la velocidad y aumentar el control sobre el vehículo <strong>se construye otro</strong> controlador PD muy similar al anterior. De esta manera y como se haría intuitivamente en un vehículo real, se <strong>acelera</strong> en los <strong>tramos rectos</strong> y se <strong>frena</strong> en las curvas o situaciones donde se desvía mucho de la línea. Para este control se implementa un <strong>control basado en casos</strong> que discrimine entre <strong>Recta</strong> o <strong>Curva</strong>.</p>
+
+<p>Para detectar la <strong>recta</strong> se ajusta un <strong>rango de valores</strong> de desviación con respecto al centro de +/- 15 píxeles por lo que si el punto central de la línea se encuentra a esa distancia con respecto al centro de la imagen el vehículo se encuentra en una recta y por tanto acelera.</p>
+
+<p>Para el otro caso, se detectará <strong>curva si no cumple</strong> con el rango de valores estimado en el paso anterior, por lo que <strong>reduce la velocidad</strong>. Aplicando lo conocido para un control PD no disminuye la velocidad de manera constante ni brusca si no en función del segundo punto de estudio de la imagen, <strong>la pared</strong>.</p>
+
+<p align="center">
+  <img width="60%" height="60%" src="./img/telemetria.png" />
+</p>
+
+<p>El <strong>estudio</strong> del nivel de intensidad <strong>de las paredes</strong> proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un <strong>valor 0</strong> de nivel de intensidad en el punto corresponde a una <strong>pared muy próxima</strong> y por lo tanto se tiene que <strong>reducir la velocidad</strong>. Es aquí donde entra en juego el segundo controlador PD. Las <strong>diferencias entre niveles de intensidad</strong> de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada. Este estudio de la pared está representado en el GUI mediante un <strong>punto amarillo</strong> (<em>wall</em> en la telemetría).</p>
+
+<p>En el siguiente vídeo puede verse el resultado del algoritmo que lleva a realizar la vuelta al circuito en aproximadamente <strong>47 segundos</strong>.</p>
+
+<div style="text-align: center">
+    <video width="600px" height="400px" controls="" preload=""> 
+        <source src="./img/follow_line_solution.mp4" />&lt;/source&gt; 
+    </video>
+</div>
+
+<h3 id="5-conclusiones">5. Conclusiones</h3>
+
+<p>El resultado de la práctica ha ido siendo satisfactorio cada pequeño reto que se iba afrontando, desde la segmentación de la imagen, extracción de las líneas de interés, tratamiento de los puntos de interés,  actuación en función de los casos que se planteaban y el ajuste de parámetros. Dado que no he utilizado nunca el control PD el resultado final deja claro que este tipo de control permite llevar más allá un algoritmo que pueda tener limitaciones ya que los cambios son progresivos y permite mejor regulación.</p>
+
+<p>El punto de  mejorar el tiempo marcado con una configuración de parámetros en cada vuelta daba ese toque <em>adictivo</em> al desarrollo de la práctica.</p>
+
+        </article>
+    </section>
+
+    <footer>
+    <nav class="container">
+        <ul>
+            <li>&copy; NachoAz 2019 - GtHub Pages - Jekyll</li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33073396-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script type="text/javascript" charset="utf-8">
+    document.onreadystatechange = function() {
+        if ( document.readyState == 'complete' ) {
+            var active = document.querySelector( 'header nav.main a.active' ).innerHTML.toLowerCase(),
+                links = document.querySelectorAll( 'header nav.main li a'),
+                selection = document.querySelector( 'header .nav-selection' ),
+                subactive = document.querySelector( 'header nav.subnav a.active' ).dataset.subnav,
+                sublinks = document.querySelectorAll( 'header nav.subnav li a'),
+                subselection = document.querySelector( 'header .subnav-selection' ),
+                i, j, link;
+            for ( i = 0; i < links.length; i++ ) {
+                link = links[ i ];
+                link.addEventListener( 'mouseover', function() {
+                    selection.className = 'nav-selection';
+                    selection.className = 'nav-selection ' + this.innerHTML.toLowerCase();
+                });
+                link.addEventListener( 'mouseout', function() {
+                    selection.className = 'nav-selection ' + active;
+                });
+            }
+            for ( i = 0; i < sublinks.length; i++ ) {
+                link = sublinks[ i ];
+                link.addEventListener( 'mouseover', function() {
+                    subselection.className = 'subnav-selection';
+                    subselection.className = 'subnav-selection ' + this.dataset.subnav;
+                });
+                link.addEventListener( 'mouseout', function() {
+                    subselection.className = 'subnav-selection ' + subactive;
+                });
+            }
+        }
+    };
+</script>
+
+</html>

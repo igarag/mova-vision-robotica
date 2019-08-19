@@ -1,0 +1,78 @@
+<header>
+    <div class="container">
+        <div class="profile">
+            <div class="social">
+                <a href="https://twitter.com/i__arranz">
+                    <div data-picture data-alt="Twitter">
+                        <div data-src="{{ site.baseurl }}/img/twitter16.png"></div>
+                        <div data-src="{{ site.baseurl }}/img/twitter32.png"     data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                        <noscript><img src="{{ site.baseurl }}/img/twitter16.png" alt="Twitter"></noscript>
+                    </div>
+                </a>
+                <a href="https://github.com/igarag">
+                    <div data-picture data-alt="Github">
+                        <div data-src="{{ site.baseurl }}/img/octocat16.png"></div>
+                        <div data-src="{{ site.baseurl }}/img/octocat32.png"     data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                        <noscript><img src="{{ site.baseurl }}/img/octocat16.png" alt="Github"></noscript>
+                    </div>
+                </a>
+            </div>
+            <a href="https://github.com/igarag">
+                <div class="avatar" data-picture data-alt="avatar">
+                    <div data-src="{% include avatar_url %}?s=54"></div>
+                    <div data-src="{% include avatar_url %}?s=108" data-media="(-webkit-min-device-pixel-ratio: 2)"></div>
+                    <noscript><img src="{% include avatar_url %}?s=54" alt="avatar"></noscript>
+                </div>
+            </a>
+        </div>
+        <h5 class="logo"><a href="https://github.com/igarag">Nacho Az</a></h5>
+        <nav class="main">
+            <ul>
+                {% comment %}
+                {% if page.nav == "blog" %}
+                    <li><a href="http://tybenz.com" class="active">Blog</a></li>
+                {% else %}
+                    <li><a href="http://tybenz.com">Blog</a></li>
+                {% endif %}
+                {% endcomment %}
+                {% if page.nav == "about" %}
+                <li><a href="https://igarag.github.io/online-cv/" class="active">Sobre mí</a></li>
+                {% else %}
+                <li><a href="https://igarag.github.io/online-cv/">Sobre mí</a></li>
+                {% endif %}
+                {% if page.nav == "projects" %}
+                <li><a href="https://github.com/igarag" class="active">Proyectos</a></li>
+                {% else %}
+                <li><a href="https://github.com/igarag">Proyectos</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="nav-slider">
+            <div class="nav-selection {{ page.nav }}"></div>
+        </div>
+        <div class="subnav-slider">
+            <div class="subnav-selection {{ page.subnav }}"></div>
+        </div>
+        <nav class="subnav">
+            <ul>
+                {% if page.subnav == "exemplar-home" %}
+                  <li><a href="/" class="active" data-subnav="exemplar-home">Inicio</a></li>
+                {% else %}
+                    <li><a href="/" data-subnav="exemplar-home">Inicio</a></li>
+                {% endif %}
+                {% comment %}
+                {% if page.subnav == "exemplar-docs" %}
+                    <li><a href="/exemplar/docs" class="active" data-subnav="exemplar-docs">Docs</a></li>
+                {% else %}
+                    <li><a href="/exemplar/docs" data-subnav="exemplar-docs">Docs</a></li>
+                {% endif %}
+                {% endcomment %}
+                {% if page.subnav == "download" %}
+                    <li><a href="https://github.com/igarag/mova-vision-robotica" class="active" data-subnav="download">Repositorio</a></li>
+                {% else %}
+                    <li><a href="https://github.com/igarag/mova-vision-robotica" data-subnav="download">Repositorio</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>

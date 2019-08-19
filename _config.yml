@@ -1,2 +1,6 @@
-theme: jekyll-theme-slate
-title: Visión en Robótica
+highlighter: pygments
+permalink: /post/:title
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', '.git']
+paginate: 4
+gems: [jekyll-paginate]
+sass_dir: ./_sass

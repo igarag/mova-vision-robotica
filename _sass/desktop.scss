@@ -1,0 +1,33 @@
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+
+h1.hero {
+    font-size: 6.5em;
+    margin: 0.3em 0 0.1em;
+}
+
+.project {
+    //@include span-columns(6);
+    //@include grid-column(6);
+    width: calc(48% - 50px);
+    float: left;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    //@include grid-column(6);
+    width: calc(48% - 25px);
+    float: left;
+    margin-left: 20px;
+}
+
+.project h2 {
+    font-size: 3.5em;
+}
+
+.github {
+  @media (min-width: em(1000)) {
+    display: block;
+  }
+}

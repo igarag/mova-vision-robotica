@@ -1,0 +1,62 @@
+---
+title: Visión en robótica
+nav: Prácticas
+subnav: exemplar-home
+layout: default
+---
+<p>
+  Este sitio contiene las prácticas de la asignatura de <strong>Visión para Robótica</strong> del Máster Oficial en Visión Artificial.
+</p>
+
+<p>
+  Las prácticas de la asignatura se han desarrollado con las siguientes características:
+</p>
+
+<ol>
+  <li><a href="https://unibotics.org">Unibotics</a>: Entorno para el desarrollo de las prácticas.</li>
+  <li><a href="https://jderobot.org/Main_Page">JdeRobot</a>: Entorno de comunicación entre el usuario y el robot.</li>
+  <li><a>Python</a>: Lenguaje para la programación de los robots.</li>
+  <li><a href="https://developers.unibotics.org">Discourse</a>: Foro para poner en común dudas, problemas y resultados.</li>
+  <li><a href="https://github.com/igarag/mova-vision-robotica">GitHub:</a>Como sitio web donde exponer los avances de las prácticas.</li>
+</ol>
+
+
+<br />
+
+<!-- 
+<article class="post no-border">
+    <div class="post-header">
+        <p class="date">Feb 21, 2012</p>
+        <h1>Posts</h1>
+    </div>
+    <div class="post-body">
+      <p>
+        This is what a post looks like. Straight forward. Date goes above the header. Content goes below the header.
+      </p>
+      <p>Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    </div>
+</article> -->
+
+<h1>Prácticas</h1>
+<div id="projects">
+  {% for page in site.pages %}
+    {% if page.box == true %}
+      {% if page.link %}
+        <a class="project" href="{{ page.link }}">
+      {% else %}
+        <a class="project" href="{{ page.url | replace: '/index.html', '' }}">
+      {% endif %}
+          <div class="project-header">
+              <h2>
+                  {{ page.title }}
+              </h2>
+          </div>
+          <div class="project-body">
+            <p>
+                {{ page.summary }}
+            </p>
+          </div>
+        </a>
+    {% endif %}
+  {% endfor %}
+</div>

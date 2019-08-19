@@ -1,0 +1,583 @@
+@charset "UTF-8";
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-enable */
+* {
+  box-sizing: border-box; }
+
+h1.hero {
+  font-size: 6.5em;
+  margin: 0.3em 0 0.1em; }
+
+.project {
+  width: calc(48% - 50px);
+  float: left;
+  margin-left: 20px;
+  text-align: center; }
+
+.pagination a {
+  width: calc(48% - 25px);
+  float: left;
+  margin-left: 20px; }
+
+.project h2 {
+  font-size: 3.5em; }
+
+@media (min-width: 62.5em) {
+  .github {
+    display: block; } }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url("../font/bebas-neue/BebasNeue-Regular.eot");
+  src: url("../font/bebas-neue/BebasNeue-Regular.otf") format("embedded-opentype"), url("../font/bebas-neue/BebasNeue-Regular.woff") format("woff"), url("../font/bebas-neue/BebasNeue-Regular.woff2") format("woff"), url("../font/bebas-neue/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-SemiboldIt-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-SemiboldIt-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-SemiboldIt-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-SemiboldIt-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-SemiboldIt-webfont.svg#SourceSansProSemiboldItalic") format("svg");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-Bold-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-Bold-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-Bold-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-Bold-webfont.svg#SourceSansProBold") format("svg");
+  font-weight: 800;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-BoldIt-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-BoldIt-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-BoldIt-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-BoldIt-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-BoldIt-webfont.svg#SourceSansProBoldItalic") format("svg");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-Black-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-Black-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-Black-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-Black-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-Black-webfont.svg#SourceSansProBlack") format("svg");
+  font-weight: 900;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-BlackIt-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-BlackIt-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-BlackIt-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-BlackIt-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-BlackIt-webfont.svg#SourceSansProBlackItalic") format("svg");
+  font-weight: 900;
+  font-style: italic; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-ExtraLight-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-ExtraLight-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-ExtraLight-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-ExtraLight-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-ExtraLight-webfont.svg#SourceSansProExtraLight") format("svg");
+  font-weight: 100;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-ExtraLightIt-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-ExtraLightIt-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-ExtraLightIt-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-ExtraLightIt-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-ExtraLightIt-webfont.svg#SourceSansProExtraLightItalic") format("svg");
+  font-weight: 100;
+  font-style: italic; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-Light-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-Light-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-Light-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-Light-webfont.svg#SourceSansProLight") format("svg");
+  font-weight: lighter;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-LightIt-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-LightIt-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-LightIt-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-LightIt-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-LightIt-webfont.svg#SourceSansProLightItalic") format("svg");
+  font-weight: lighter;
+  font-style: italic; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-Regular-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-Regular-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-Regular-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-Regular-webfont.svg#SourceSansProRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-It-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-It-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-It-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-It-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-It-webfont.svg#SourceSansProItalic") format("svg");
+  font-weight: normal;
+  font-style: italic; }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../font/source-sans-pro/SourceSansPro-Semibold-webfont.eot");
+  src: url("../font/source-sans-pro/SourceSansPro-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-sans-pro/SourceSansPro-Semibold-webfont.woff") format("woff"), url("../font/source-sans-pro/SourceSansPro-Semibold-webfont.ttf") format("truetype"), url("../font/source-sans-pro/SourceSansPro-Semibold-webfont.svg#SourceSansProSemibold") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("../font/source-code-pro/SourceCodePro-Light-webfont.eot");
+  src: url("../font/source-code-pro/SourceCodePro-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-code-pro/SourceCodePro-Light-webfont.woff") format("woff"), url("../font/source-code-pro/SourceCodePro-Light-webfont.ttf") format("truetype"), url("../font/source-code-pro/SourceCodePro-Light-webfont.svg#SourceCodeProLight") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("../font/source-code-pro/SourceCodePro-ExtraLight-webfont.eot");
+  src: url("../font/source-code-pro/SourceCodePro-ExtraLight-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-code-pro/SourceCodePro-ExtraLight-webfont.woff") format("woff"), url("../font/source-code-pro/SourceCodePro-ExtraLight-webfont.ttf") format("truetype"), url("../font/source-code-pro/SourceCodePro-ExtraLight-webfont.svg#SourceCodeProExtraLight") format("svg");
+  font-weight: lighter;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("../font/source-code-pro/SourceCodePro-Regular-webfont.eot");
+  src: url("../font/source-code-pro/SourceCodePro-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-code-pro/SourceCodePro-Regular-webfont.woff") format("woff"), url("../font/source-code-pro/SourceCodePro-Regular-webfont.ttf") format("truetype"), url("../font/source-code-pro/SourceCodePro-Regular-webfont.svg#SourceCodeProRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("../font/source-code-pro/SourceCodePro-Semibold-webfont.eot");
+  src: url("../font/source-code-pro/SourceCodePro-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-code-pro/SourceCodePro-Semibold-webfont.woff") format("woff"), url("../font/source-code-pro/SourceCodePro-Semibold-webfont.ttf") format("truetype"), url("../font/source-code-pro/SourceCodePro-Semibold-webfont.svg#SourceCodeProSemibold") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("../font/source-code-pro/SourceCodePro-Bold-webfont.eot");
+  src: url("../font/source-code-pro/SourceCodePro-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../font/source-code-pro/SourceCodePro-Bold-webfont.woff") format("woff"), url("../font/source-code-pro/SourceCodePro-Bold-webfont.ttf") format("truetype"), url("../font/source-code-pro/SourceCodePro-Bold-webfont.svg#SourceCodeProBold") format("svg");
+  font-weight: bolder;
+  font-style: normal; }
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-enable */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent; }
+
+html, body {
+  font-size: 100%; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+html, button, input, select, textarea {
+  font-family: sans-serif; }
+
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px; }
+a:hover, a:active {
+  outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: bold; }
+
+blockquote {
+  margin: 1em 40px; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+pre, code, kbd, samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+small {
+  font-size: 75%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none; }
+
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  -ms-interpolation-mode: bicubic; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal; }
+
+button, input, select, textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline; }
+
+button, input {
+  line-height: normal; }
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button; }
+
+button[disabled], input[disabled] {
+  cursor: default; }
+
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* stylelint-disable order/properties-alphabetical-order */
+/* stylelint-enable */
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  margin: 0;
+  color: #444;
+  font-size: 1.2em;
+  min-width: 257px; }
+
+a {
+  color: #5EA5FF;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+h1, h2, h3, h4, h5 {
+  color: #222;
+  font-family: "Bebas Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 0.8em;
+  margin: 0.4em 0; }
+  h1 a, h2 a, h3 a, h4 a, h5 a {
+    color: inherit; }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
+    text-decoration: none; }
+
+h1 {
+  font-size: 4em; }
+
+h2 {
+  font-size: 3.5em; }
+
+h3 {
+  font-size: 3em; }
+
+h4 {
+  font-size: 2.5em; }
+
+h5 {
+  font-size: 2em; }
+
+h1.hero {
+  font-size: 4.5em;
+  margin: 0.5em 0 0.1em; }
+
+p {
+  line-height: 1.5em;
+  margin: 1em 0;
+  display: inline-block; }
+
+.wrapper {
+  padding: 20px; }
+
+.container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  position: relative; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: block; }
+
+header a {
+  color: inherit; }
+  header a:hover {
+    text-decoration: none; }
+
+header nav ul {
+  font-size: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px; }
+  header nav ul::after {
+    clear: both;
+    content: "";
+    display: block; }
+
+header .logo {
+  font-style: italic; }
+
+header nav li {
+  float: left; }
+  header nav li a {
+    padding-right: 20px; }
+
+header nav.subnav {
+  z-index: 2;
+  margin: 10px 0 -40px;
+  position: absolute;
+  right: 0; }
+
+header .subnav a {
+  padding-right: 0;
+  padding-left: 20px; }
+
+header .nav-slider {
+  height: 10px;
+  background-color: #111;
+  position: relative; }
+
+header .nav-selection {
+  position: absolute;
+  height: 10px;
+  background-color: #6EC5FF; }
+
+header .nav-selection.about {
+  width: 44px;
+  left: 49px; }
+
+header .nav-selection.blog {
+  width: 33px;
+  left: 0; }
+
+header .nav-selection.projects {
+  width: 60px;
+  left: 107px; }
+
+header .subnav-selection {
+  position: absolute;
+  height: 10px;
+  background-color: #111;
+  width: 50px; }
+
+header .subnav-selection.exemplar-home {
+  right: 140px;
+  width: 42px; }
+
+header .subnav-selection.exemplar-docs {
+  right: 87px;
+  width: 35px; }
+
+header .subnav-selection.download {
+  right: 0;
+  width: 69px; }
+
+header .profile {
+  float: right;
+  height: 58px;
+  max-width: 84px;
+  margin-top: 14px; }
+
+header .social {
+  width: 16px;
+  float: left; }
+
+header .social img {
+  display: block;
+  margin: 9px 0; }
+
+header .avatar {
+  height: 58px;
+  width: 58px;
+  border: 2px solid #111;
+  float: left;
+  margin-left: 10px; }
+  header .avatar img {
+    width: 100%;
+    height: 100%; }
+  @media (max-width: 20.4375em) {
+    header .avatar {
+      display: none; } }
+
+.github {
+  display: none; }
+
+footer {
+  margin-top: 30px; }
+
+footer ul {
+  padding: 0; }
+
+footer nav {
+  border-width: 10px 0 0;
+  border-style: solid;
+  border-color: #111;
+  padding-top: 20px; }
+
+footer nav ul li {
+  display: block;
+  float: left;
+  margin-right: flex-gutter(12);
+  width: flex-grid(3, 12); }
+  footer nav ul li:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 40em) {
+    footer nav ul li {
+      display: block;
+      float: left;
+      margin-right: flex-gutter(12);
+      width: flex-grid(12, 12);
+      margin-bottom: 10px; }
+      footer nav ul li:last-child {
+        margin-right: 0; }
+      footer nav ul li:nth-child(2n) {
+        margin-right: 0; } }
+
+ul, ol {
+  line-height: 1.5em;
+  padding-left: 20px;
+  font-size: 1em; }
+
+ul {
+  list-style: square; }
+
+.post {
+  border-top: 1px solid #222;
+  margin-bottom: 5em; }
+
+.post:first-child, .post.no-border {
+  border-top: none; }
+
+.post-header .date {
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  text-decoration: lowercase;
+  margin: 1em 0 -1.2em; }
+
+#projects {
+  margin-top: 40px; }
+
+.project {
+  display: block;
+  border: 1px solid #ccc;
+  margin-bottom: 2.35765%;
+  padding: flex-gutter();
+  color: inherit; }
+  .project:hover {
+    border-color: #5EA5FF;
+    text-decoration: none; }
+
+.project h2 {
+  font-size: 3em; }
+
+.project:nth-child(2n) {
+  margin-right: 0; }
+
+.pagination {
+  margin-top: 30px; }
+
+.button, .key-selector a {
+  background: #222;
+  color: #FFFFFF;
+  padding: 0.4em 0;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Bebas Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em; }
+
+.key-selector a {
+  float: left;
+  padding: 0.5em 0.4em 0.4em;
+  margin-right: 0.4em;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 0.9em; }
+
+.key-selector a.active {
+  background-color: #6EC5FF; }
+
+.pagination .button span {
+  position: relative; }
+
+.pagination a.previous span:before {
+  content: "←";
+  position: absolute;
+  left: -30px; }
+
+.pagination a.next span:after {
+  content: "→";
+  position: absolute;
+  left: 50px; }
+
+pre {
+  font-family: 'Source Code Pro', monospace; }
+
+.chords {
+  color: #FFFFFF; }
+
+.chords strong {
+  color: #6EC5FF; }

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lan="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>{{ page.title }} | NachoAz</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="shortcut icon" href="{% include avatar_url %}?s=16">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:300,500,300italic,500italic|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+
+  <script type="text/javascript" charset="utf-8" src="{{ site.baseurl }}/js/matchmedia.js"></script>
+  <script type="text/javascript" charset="utf-8" src="{{ site.baseurl }}/js/picturefill.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="github">
+      <a href="https://github.com/igarag/exemplar"><img style="position: absolute; top: 0; right: 0; border: 0;" alt="Fork me on GitHub"></a>
+    </div>
+    {% include header.html %}
+
+    <section id="main">
+        <article class="container">
+          <h1 class="hero">{{ page.title }}</h1>
+          {{ content }}
+        </article>
+    </section>
+
+    {% include footer.html %}
+</body>
+{% include scripts.html %}
+</html>
