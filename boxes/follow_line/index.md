@@ -9,7 +9,7 @@ summary: Completar el circuito mediante el seguimiento de la línea mediante el 
 En esta página se explica la metodología empleada para el desarrollo de la práctica de **Sigue Línea** en la asignatura de Visión en Robótica del Máster Oficial en Visión Artificial.
 
 <div style="text-align: center">
-	<img align="center" width="50%" height="30%" src="./img/puntos_interes.png">
+	<img width="50%" height="30%" src="./img/puntos_interes.png">
 </div>
 
 
@@ -24,9 +24,9 @@ Con la imagen recortada se procesa la imagen para extraer la línea roja del asf
 
 Con este cambio en el modelo de color y fijados los valores del filtro se obtiene la línea roja. Puede verse en la siguiente imagen el resultado de la segmentación.
 
-<p align="center">
+<div style="text-align: center">
   <img width="60%" height="60%" src="./img/imagen_segmentada.png">
-</p>
+</div>
 
 Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería `numpy` se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores. 
 
@@ -58,9 +58,9 @@ Para detectar la **recta** se ajusta un **rango de valores** de desviación con 
 
 Para el otro caso, se detectará **curva si no cumple** con el rango de valores estimado en el paso anterior, por lo que **reduce la velocidad**. Aplicando lo conocido para un control PD no disminuye la velocidad de manera constante ni brusca si no en función del segundo punto de estudio de la imagen, **la pared**. 
 
-<p align="center">
+<div style="text-align: center">
   <img width="60%" height="60%" src="./img/telemetria.png">
-</p>
+</div>
 
 
 El **estudio** del nivel de intensidad **de las paredes** proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un **valor 0** de nivel de intensidad en el punto corresponde a una **pared muy próxima** y por lo tanto se tiene que **reducir la velocidad**. Es aquí donde entra en juego el segundo controlador PD. Las **diferencias entre niveles de intensidad** de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada. Este estudio de la pared está representado en el GUI mediante un **punto amarillo** (*wall* en la telemetría).

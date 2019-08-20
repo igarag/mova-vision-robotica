@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="https://avatars3.githubusercontent.com/u/9017430?s=460&v=4
 ?s=16">
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:300,500,300italic,500italic|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:300,500,300italic,500italic|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 
   <script type="text/javascript" charset="utf-8" src="/js/matchmedia.js"></script>
   <script type="text/javascript" charset="utf-8" src="/js/picturefill.js"></script>
@@ -90,7 +90,7 @@
           <p>En esta página se explica la metodología empleada para el desarrollo de la práctica de <strong>Sigue Línea</strong> en la asignatura de Visión en Robótica del Máster Oficial en Visión Artificial.</p>
 
 <div style="text-align: center">
-	<img align="center" width="50%" height="30%" src="./img/puntos_interes.png" />
+	<img width="50%" height="30%" src="./img/puntos_interes.png" />
 </div>
 
 <p>El <strong>objetivo</strong> de la práctica es aplicar comportamiento reactivo a un modelo de Fórmula 1 para que siga una línea roja pintada sobre el asfalto de la simulación. Con este comportamiento se pretende optimizar los valores de los actuadores del robot para que complete la vuelta en el menor tiempo posible.</p>
@@ -103,9 +103,9 @@
 
 <p>Con este cambio en el modelo de color y fijados los valores del filtro se obtiene la línea roja. Puede verse en la siguiente imagen el resultado de la segmentación.</p>
 
-<p align="center">
+<div style="text-align: center">
   <img width="60%" height="60%" src="./img/imagen_segmentada.png" />
-</p>
+</div>
 
 <p>Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería <code>numpy</code> se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores.</p>
 
@@ -133,9 +133,9 @@
 
 <p>Para el otro caso, se detectará <strong>curva si no cumple</strong> con el rango de valores estimado en el paso anterior, por lo que <strong>reduce la velocidad</strong>. Aplicando lo conocido para un control PD no disminuye la velocidad de manera constante ni brusca si no en función del segundo punto de estudio de la imagen, <strong>la pared</strong>.</p>
 
-<p align="center">
+<div style="text-align: center">
   <img width="60%" height="60%" src="./img/telemetria.png" />
-</p>
+</div>
 
 <p>El <strong>estudio</strong> del nivel de intensidad <strong>de las paredes</strong> proporciona información de cómo de cerca está el coche de una de ellas. En este caso se asume que un <strong>valor 0</strong> de nivel de intensidad en el punto corresponde a una <strong>pared muy próxima</strong> y por lo tanto se tiene que <strong>reducir la velocidad</strong>. Es aquí donde entra en juego el segundo controlador PD. Las <strong>diferencias entre niveles de intensidad</strong> de la pared harán incrementar la velocidad del fórmula 1 hasta alcanzar la máxima fijada. Este estudio de la pared está representado en el GUI mediante un <strong>punto amarillo</strong> (<em>wall</em> en la telemetría).</p>
 
