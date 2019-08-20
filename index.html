@@ -42,9 +42,9 @@ layout: default
   {% for page in site.pages %}
     {% if page.box == true %}
       {% if page.link %}
-        <a class="project" href="{{ page.link }}">
+        <a class="project" href="{{ site.baseurl }}/{{ page.link }}">
       {% else %}
-        <a class="project" href="{{ page.url | replace: '/index.html', '' }}">
+        <a class="project" href="{{ site.baseurl }}/{{ page.url | replace: '/index.html', '' }}">
       {% endif %}
           <div class="project-header">
               <h2>
