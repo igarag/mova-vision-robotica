@@ -99,9 +99,9 @@
 <h3 id="2-retroproyección">2. Retroproyección</h3>
 <p>Utilizando el API ofrecido por la plataforma, se toma un punto de los almacenados como puntos de interés para, pasarlo de coordenadas gráficas (píxeles) a coordenadas ópticas y retroproyectarlo.</p>
 
-<pre><code class="language-python">pointInOpt = self.camLeftP.graficToOptical(point)
-point1_3D_Left = self.camLeftP.backproject(pointInOpt)
-</code></pre>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pointInOpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">camLeftP</span><span class="o">.</span><span class="n">graficToOptical</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+<span class="n">point1_3D_Left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">camLeftP</span><span class="o">.</span><span class="n">backproject</span><span class="p">(</span><span class="n">pointInOpt</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>El resultados de esta operación es un punto (no definido) en el espacio. Este punto, junto con el centro óptico de la cámara, unidos, forman el rayo de retroproyección. Será en este rayo donde se encuentre el punto correspondiente en la otra cámara, el cual se buscará a través de la <strong>línea epipolar</strong>.</p>
 
@@ -113,7 +113,7 @@ point1_3D_Left = self.camLeftP.backproject(pointInOpt)
 </div>
 
 <h3 id="4-matching">4. Matching</h3>
-<p>Para saber cómo de buena es la correspondencia se utiliza la función de openCV <code>matchTemplate</code> con la métrica <code>CCORR_NORMED</code> que devuelve una medida de correlación. Esta medida se realiza entre <strong>dos recortes</strong> tomados, uno de cada imagen. Fijando un recorte de la cámara izquierda, se extrae, en el mismo punto, uno en la imagen derecha y se mide el parentesco. Esto se repite desplazándose hacia la izquierda en busca la mejor medida de correspondencia. De los 15 píxeles de desplazamiento máximos se retornará de la función <code>matching</code> el que mayor correlación tenga. Ese será el recorte que mejor parentesco tiene con el correspondiente de la cámara izquierda y el centro del recorte será la coordenada del píxel que se retroproyecta en la siguiente etapa.</p>
+<p>Para saber cómo de buena es la correspondencia se utiliza la función de openCV <code class="highlighter-rouge">matchTemplate</code> con la métrica <code class="highlighter-rouge">CCORR_NORMED</code> que devuelve una medida de correlación. Esta medida se realiza entre <strong>dos recortes</strong> tomados, uno de cada imagen. Fijando un recorte de la cámara izquierda, se extrae, en el mismo punto, uno en la imagen derecha y se mide el parentesco. Esto se repite desplazándose hacia la izquierda en busca la mejor medida de correspondencia. De los 15 píxeles de desplazamiento máximos se retornará de la función <code class="highlighter-rouge">matching</code> el que mayor correlación tenga. Ese será el recorte que mejor parentesco tiene con el correspondiente de la cámara izquierda y el centro del recorte será la coordenada del píxel que se retroproyecta en la siguiente etapa.</p>
 
 <h3 id="5-nueva-retroproyección">5. Nueva retroproyección</h3>
 <p>Con la coordenada de la cámara derecha del mejor píxel obtenido tras la correlación se repiten los pasos para obtener el punto en 3D que, de igual manera, unido con el centro óptico, se obtiene el nuevo rayo de retroproyección. Esta vez de la cámara derecha.</p>

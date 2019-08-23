@@ -107,7 +107,7 @@
   <img width="60%" height="60%" src="./img/imagen_segmentada.png" />
 </div>
 
-<p>Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería <code>numpy</code> se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores.</p>
+<p>Con la imagen segmentada se procede a la extracción de 2 líneas (filas). Utilizando la librería <code class="highlighter-rouge">numpy</code> se busca en estas líneas el punto central que existe entre los valores marcados como 255 (blanco) para extraer el centro de la línea. Este punto es el de referencia para las órdenes que se enviarán a los actuadores.</p>
 
 <h3 id="2-diseño">2. Diseño</h3>
 <p>Dado que la imagen tiene un ancho de 640 píxeles, el punto central de la imagen se encuentra en el píxel 320. Las <strong>diferencias</strong> que existen <strong>entre el punto central</strong> de la imagen y el <strong>valor calculado</strong> a través de la extracción del punto centro de la fila <strong>será la desviación cometida</strong> con respecto al centro.</p>
@@ -116,14 +116,14 @@
 
 <h3 id="3-comportamiento">3. Comportamiento</h3>
 
-<p>Para corregir este error se diseña un <strong>control proporcional</strong> y derivativo (PD). Con este mecanismo de control se <strong>corrige el error</strong> proporcionado por la diferencia entre el centro de la imagen y el centro de la línea de manera proporcional (<code>Kp</code>), es decir, tanta corrección como desviación sufra el vehículo. Para <strong>compensar las oscilaciones</strong> proporcionadas por este controlador se añade la <strong>componente derivativa</strong> (<code>Kd</code>) que <strong>suaviza</strong> estos <strong>cambios bruscos</strong> calculando <strong>diferencias entre el error actual y el anterior</strong> para conocer si el error <strong>aumenta</strong> y, por tanto, hay que <strong>corregir más</strong> o <strong>disminuye</strong> y la componente proporcional tiene que <strong>corregir menos</strong> cantidad.</p>
+<p>Para corregir este error se diseña un <strong>control proporcional</strong> y derivativo (PD). Con este mecanismo de control se <strong>corrige el error</strong> proporcionado por la diferencia entre el centro de la imagen y el centro de la línea de manera proporcional (<code class="highlighter-rouge">Kp</code>), es decir, tanta corrección como desviación sufra el vehículo. Para <strong>compensar las oscilaciones</strong> proporcionadas por este controlador se añade la <strong>componente derivativa</strong> (<code class="highlighter-rouge">Kd</code>) que <strong>suaviza</strong> estos <strong>cambios bruscos</strong> calculando <strong>diferencias entre el error actual y el anterior</strong> para conocer si el error <strong>aumenta</strong> y, por tanto, hay que <strong>corregir más</strong> o <strong>disminuye</strong> y la componente proporcional tiene que <strong>corregir menos</strong> cantidad.</p>
 
 <p>La ecuación que sigue este controlador es la siguiente:</p>
 
-<pre><code class="language-python">correccion = kp * desviacion + kd * (desviacion - desviacion_anterior)
-</code></pre>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">correccion</span> <span class="o">=</span> <span class="n">kp</span> <span class="o">*</span> <span class="n">desviacion</span> <span class="o">+</span> <span class="n">kd</span> <span class="o">*</span> <span class="p">(</span><span class="n">desviacion</span> <span class="o">-</span> <span class="n">desviacion_anterior</span><span class="p">)</span>
+</code></pre></div></div>
 
-<p>El ajuste de las constantes <code>Kp</code> y <code>Kd</code> serán las que permitan un funcionamiento más ajustado a la línea y suavidad en la corrección. Son valores que <strong>se calculan de manera experimental</strong> por lo que llevan tiempo adecuar estos valores al problema concreto.</p>
+<p>El ajuste de las constantes <code class="highlighter-rouge">Kp</code> y <code class="highlighter-rouge">Kd</code> serán las que permitan un funcionamiento más ajustado a la línea y suavidad en la corrección. Son valores que <strong>se calculan de manera experimental</strong> por lo que llevan tiempo adecuar estos valores al problema concreto.</p>
 
 <h3 id="4-control-basado-en-casos">4. Control Basado en casos.</h3>
 
